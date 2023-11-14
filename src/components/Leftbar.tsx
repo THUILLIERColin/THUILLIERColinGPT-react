@@ -51,7 +51,7 @@ export default function Leftbar({ conversationId }: LeftbarProps) {
   return (
     <nav className="flex flex-col bg-gray-100 dark:bg-gray-900 w-[260px] overflow-y-auto">
       <h1 className="text-2xl font-bold p-4">
-        <Link href="/">mewoGPT</Link>
+        <Link href="/">ThuillierGPT</Link>
       </h1>
       {isLoading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
