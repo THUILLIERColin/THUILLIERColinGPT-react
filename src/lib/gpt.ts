@@ -1,8 +1,7 @@
 import OpenAI from 'openai/index.mjs';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '',
-});
+const apiKey = process.env.OPENAI_API_KEY;
+const openai = apiKey ? new OpenAI({ apiKey }) : null;
 
 export const askGPT = (
   messages: { role: 'user' | 'assistant'; content: string }[],
@@ -15,7 +14,7 @@ export const askGPT = (
     presence_penalty?: number;
   }
 ): Promise<Awaited<{ role: 'assistant'; content: string }>> => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' || !openai) {
     return Promise.resolve({
       role: 'assistant',
       content: 'Hello, I am a bot.',
