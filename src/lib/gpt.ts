@@ -15,9 +15,9 @@ export const askGPT = (
   }
 ): Promise<Awaited<{ role: 'assistant'; content: string }>> => {
   if (process.env.NODE_ENV === 'development' || !openai) {
-    return Promise.resolve({␊
-      role: 'assistant',␊
-      content: 'Hello, I am a bot.',␊
+    return Promise.resolve({
+      role: 'assistant',
+      content: 'Hello, I am a bot.',
     });
   }
 
