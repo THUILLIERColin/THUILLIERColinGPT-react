@@ -21,7 +21,7 @@ export const askGPT = (
     });
   }
 
-  return openai.chat.completions
+  return openai.chat.completions␊
     .create({
       model: config?.model || 'gpt-4',
       messages,
