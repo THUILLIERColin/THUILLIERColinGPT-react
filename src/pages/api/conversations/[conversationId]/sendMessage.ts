@@ -46,13 +46,14 @@ async function POST(req: NextApiRequest, res: NextApiResponse) {
 
   const { content } = req.body;
 
-  const messageGPT = await askGPT([
-    ...conversation.messages,
-    {
-      role: 'user',
-      content,
-    },
-  ]);
+  const messagesForGPT = conversation.messages.map((m: { role: string; content: string }) => ({
+    role: m.role as 'user' | 'assistant',
+    content: m.content,
+  }));
+
+  messagesForGPT.push({ role: 'user', content });
+
+  const messageGPT = await askGPT(messagesForGPT);
 
   const conversationUpdated = await prisma.conversation.update({
     where: {
