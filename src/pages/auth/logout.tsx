@@ -1,4 +1,4 @@
-import { use, useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '@/context/UserContext';
 import { useRouter } from 'next/router';
 
@@ -8,8 +8,8 @@ function Logout() {
 
     useEffect(() => {
         logout();
-        router.push('/');
-    }, []);
+        void router.push('/');
+    }, [logout, router]);
 
     return null;
 }

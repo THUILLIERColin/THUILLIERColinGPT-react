@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface MessageProps {
@@ -16,20 +17,20 @@ export default function Message({ id, message, role }: MessageProps) {
       <div className="flex flex-1 gap-4 text-base mx-auto md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl">
         <div>
           {role === 'user' && (
-            <img
+            <Image
               alt="User"
               loading="lazy"
-              width="36"
-              height="36"
+              width={36}
+              height={36}
               src="https://randomuser.me/api/portraits/men/36.jpg"
             />
           )}
           {role === 'assistant' && (
-            <img
+            <Image
               alt="User"
               loading="lazy"
-              width="36"
-              height="36"
+              width={36}
+              height={36}
               src="https://randomuser.me/api/portraits/men/30.jpg"
             />
           )}
