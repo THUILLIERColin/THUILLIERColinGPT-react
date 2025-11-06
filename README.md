@@ -126,7 +126,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 6. **Configure build settings (optional):**
    - Railway automatically detects Next.js
    - The `railway.json` file in the repository contains optimized build settings
-   - Build command: `npm install && prisma generate && prisma migrate deploy && npm run build`
+   - Build command: `prisma generate && prisma migrate deploy && next build` (via `npm run vercel-build`)
    - Start command: `npm start`
 
 7. **Deploy:**
